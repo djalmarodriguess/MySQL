@@ -1,0 +1,39 @@
+#Criar banco de dados
+create database cadastro
+default character set utf8
+default collate utf8_general_ci;
+
+#Criar tabela
+create table if not exists pessoas(
+id int not null auto_increment,
+nome varchar(30) not null, 
+nascimento date,
+sexo enum('M','F'),
+peso decimal(5,2),
+altura decimal(3,2),
+nacionalidade varchar(20) default 'Brasil',
+primary key (id)
+)default charset = utf8;
+
+#Inserir valores na tabela
+insert into pessoas values 
+(default, 'Maria', '2000-03-18', 'F', '63', '1.64', 'Portugal'),
+(default, 'Raquel', '1990-06-01', 'F', '78.8', '1.94', 'Irlanda');
+
+#Adicionando uma nova coluna na primeira posição na tabela
+alter table pessoas add column codigo int first;
+
+#Adicionando uma nova coluna depois um especificar a anterior.
+alter table pessoas add column profissao varchar(10) after nome;
+
+#Modificando o tipo primitivo de uma coluna da tabela
+alter table pessoas modify column profissao varchar(30);
+
+#Alterando o nome uma coluna na tabela
+alter table pessoas change column profissao prof varchar(30);
+
+#Alterar nome da tabela
+alter table ola rename to pessoas;
+ 
+#Mostar todos os dados da tabela
+select * from pessoas;
