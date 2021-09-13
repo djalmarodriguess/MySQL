@@ -1,0 +1,20 @@
+#Wildcards
+#Operador LIKE.
+#O operador LIKE é case sensitive, ou seja, a procura será com letra maiúscula ou minúscula. 
+#Selecionar nos registros todos dados começados com P/p.
+select * from cursos where nome like 'P%';
+
+#Selecionar nos registros todos dados terminados com a.
+select * from cursos where nome like '%a';
+
+#Selecionar de todos os registros os que contenham a letra 'a' em qualquer lugar.
+select * from cursos where nome like '%a%';
+
+#Selecionar de todos os registros os que NÃO contenham a letra 'a' em nenhum lugar.
+select * from cursos where nome not like '%a%';
+
+#Selecionas os registros começados com 'PH' e terminam com 'P'.
+select * from cursos where nome like 'ph%p';
+
+#Selecionas os registros começados com 'PH' e terminam com 'P' seguidos de alguma 'coisa'.
+select * from cursos where nome like 'ph%p_';

@@ -1,0 +1,17 @@
+#Funções de Agregação
+#Server para selecionar ou totalizar algo.
+select count(*) from cursos;
+select count(*) from cursos where carga > 40;
+select count(nome) from cursos;
+
+#Valor maximo de um registro especifico
+select max(carga) from cursos order by carga;
+
+#Valor manimo de um registro especifico.
+select nome, min(totaulas) from cursos;
+
+#Soma do valor de um registro especifico, somente números.
+select sum(totaulas) from cursos where ano = '2016';
+
+#Média dos valores de um registro especifico, somente números.
+select avg(totaulas) from cursos;

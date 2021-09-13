@@ -1,0 +1,2 @@
+#Distinguindo, nada mais é quando selecina todos os registros iguais e não repete nenhum na amostragem.
+select distinct nacionalidade from gafanhotos order by nacionalidade;
