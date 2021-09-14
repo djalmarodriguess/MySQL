@@ -1,0 +1,25 @@
+#Agrupando Registro - Para saber a quantidade deve-se agrupar, não distinguir.
+
+#Contar quantos registro estão agrupados.
+select carga, count(*) from cursos group by carga;
+select totaulas, count(*) from cursos group by totaulas order by totaulas;
+
+#Utilizando o Where.
+select carga, count(*) from cursos where totaulas = 30 group by carga;
+
+#Utilizando o Having.
+select ano, nome, count(*) from cursos group by ano having ano > 2016;
+
+#Utilizando where e having.
+select ano, count(*) from cursos 
+where totaulas >20
+group by ano having ano > 2016
+order by count(*);
+
+#Select dentro de select.
+select avg(carga) from cursos;
+	#Será mostrados somente a quantdade de curso que estão acima da média
+select carga, count(*) from cursos
+where ano > 2015
+group by carga 
+having carga > (select avg(carga) from cursos);
