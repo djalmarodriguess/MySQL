@@ -1,0 +1,76 @@
+use world_x;
+
+#Selecionando todos os registros
+select * from city;
+select * from country;
+select * from countrylanguage;
+
+#Quantos registros têm em cada tabela
+select count(*) from city;
+select count(*) from country;
+select count(*) from countrylanguage;
+
+#Tabela city, somente district = Abu Dhabi
+select * from city
+where District = 'abu dhabi'
+order by id desc;
+
+#Contagem de cada CountryCode
+select CountryCode , count(*) from city
+group by CountryCode 
+order by Count(*)desc;
+
+#Contagem de cada CountryCode, mas apenas os que tem mais de 100 registros
+select CountryCode , count(*) from city
+group by CountryCode 
+having count(*) > 100 
+order by Count(*)desc;
+
+#Cidade e estados brasileiros
+select name, District from city
+where CountryCode = 'bra';
+
+#Número de cidades em cada estado
+select District, count(*) from city
+where CountryCode = 'bra'
+group by District
+order by count(*) desc;
+
+select * from country
+order by Capital ;
+
+#Selecionando Name e o CountryCode respectivo
+select cl.CountryCode, c.Name from countrylanguage cl 
+join country c
+on cl.CountryCode = c.Code;
+
+#Selecionando CountryCode e a quantidade de de registros que tem em cada CountryCode
+select cl.CountryCode, count(cl.CountryCode) from countrylanguage cl 
+join country c 
+on cl.CountryCode = c.Code
+group by cl.CountryCode
+order by Count(cl.CountryCode);
+
+#Selecionando CountryCode e a quantidade de de registros que tem em cada CountryCode mas somente IsOfficial = T
+select cl.CountryCode, count(cl.CountryCode) from countrylanguage cl 
+join country c 
+on cl.CountryCode = c.Code
+where cl.IsOfficial = 'T'
+group by cl.CountryCode
+order by count(cl.CountryCode)desc;
+
+select * from countrylanguage
+order by Percentage desc;
+
+#Média da percentage
+select avg(percentage) from countrylanguage;
+
+#Percentagem maiores que o valor medio das percentage.
+select Percentage, count(*) from countrylanguage
+group by Percentage 
+having Percentage > (select avg(percentage) from countrylanguage);
+
+select cl.countrycode, count(cl.CountryCode) from countrylanguage cl
+right join country c 
+on cl.CountryCode = c.Code
+group by cl.CountryCode ;
