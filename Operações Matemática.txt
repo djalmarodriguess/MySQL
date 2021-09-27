@@ -1,0 +1,41 @@
+#Soma
+select
+	1 + 2 as Resultado;
+select 430 + 132.8 + 23 as Resultado;
+
+#Subtração
+select 664 - (663 + 412) as Resultado;
+
+#Divisão
+select 42/2 as Resultado;
+select 100/3 as Resultado;
+
+#Multiplicação
+select 4 * 7 as Resultado;
+select 30.76 * 2 as Resultados;
+
+#Potenciação
+select power(2,3) as Resultados;
+select power(3,6) as Resultados;
+
+#Porcentagem
+select 100 * 1.1 as Resultados;
+select 100 * 0.9 as Resultados;
+
+#ABS - Tranformar valor negativo em positivo
+select abs(-100) as Resultados;
+select abs(120 - 543) as Resultados;
+
+#Raíz quadrada
+select sqrt(100) as Resultado;
+select sqrt(13);
+
+#Pi
+select pi();
+
+#Data atual
+select curdate() as Data;
+select sysdate() as 'Data e Hora'; 
+
+#Função sum() é uma função de agregação, usada para somar valores totais de colunas;
+select sum(nome da coluna para soma);
